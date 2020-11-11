@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="demo.View.ToDoAdding">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{StaticResource DefaultHeight}"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="{StaticResource DefaultHeight}"/>
+            </Grid.RowDefinitions>
+
+            <AbsoluteLayout BackgroundColor="{DynamicResource ThemeColor}" HeightRequest="{StaticResource DefaultHeight}">
+                <Button x:Name="btnBack" Text="&lt;" AbsoluteLayout.LayoutBounds="0,0.5,35,35" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                <Label Text="Add New" FontSize="16" FontAttributes="Bold" TextColor="White" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,100,25"/>
+            </AbsoluteLayout>
+            
+            <!-- Content -->
+            <ScrollView Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    
+                    
+
+                    <Label Text="Time:"/>
+                    <TimePicker x:Name="tpTime" />
+                    <Label Text="Note:" Grid.Row="2"/>
+                    <Editor x:Name="edtNote" Grid.Row="3" HeightRequest="200"/>
+                </Grid>
+            </ScrollView>
+            
+
+            <ContentView HorizontalOptions="FillAndExpand" BackgroundColor="#eee" Grid.Row="2">
+                <Button x:Name="btnSave" Text="Save" HorizontalOptions="Center"/>
+            </ContentView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="demo.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ThemeColor">#387F26</Color>
+            <Color x:Key="DefaultTextColor">#333333</Color>
+            <x:Double x:Key="DefaultHeight">35</x:Double>
+            <OnPlatform x:Key="DefaultPadding" x:TypeArguments="Thickness">
+                <On Platform="iOS" Value="5,5,5,5" />
+                <On Platform="Android" Value="5,5,5,5" />
+                <On Platform="UWP" Value="5,5,5,5" />
+            </OnPlatform>
+            <x:Single x:Key="DefaultCornerRadius">3</x:Single>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="TextColor" Value="{DynamicResource DefaultTextColor}" />
+            </Style>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

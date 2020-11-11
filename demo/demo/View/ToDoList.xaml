@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="demo.View.ToDoList">
+    <ContentPage.Content>
+        <!--<StackLayout>
+            <StackLayout BackgroundColor="Bisque" Orientation="Horizontal" HeightRequest="35">
+                <Label Text="To Do List" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="Aqua"/>
+                <Button Text="+" WidthRequest="35" HeightRequest="35"/>
+            </StackLayout>
+            <ListView BackgroundColor="Beige"></ListView>
+        </StackLayout>-->
+
+        <StackLayout>
+            <AbsoluteLayout BackgroundColor="{DynamicResource ThemeColor}" HeightRequest="35">
+                <Label Text="To Do List" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
+                       VerticalTextAlignment="Center"
+                       AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,100,35"/>
+                <ffimageloading:CachedImage x:Name="btnAdd" Source="resource://demo.Resources.Images.plus.png" AbsoluteLayout.LayoutBounds="1, 0.5, 35,35" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                <!--<Button x:Name="btnAdd" Text="+" AbsoluteLayout.LayoutBounds="1, 0.5, 35,35" AbsoluteLayout.LayoutFlags="PositionProportional"/>-->
+            </AbsoluteLayout>
+            <ListView x:Name="lvTodo" BackgroundColor="Beige" HasUnevenRows="True" ItemsSource="{Binding ToDoList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Frame BackgroundColor="{Binding NeedToDoColor}" Padding="0" CornerRadius="4" Grid.ColumnSpan="2"/>
+                                <StackLayout Margin="5">
+                                    <Label Text="{Binding Time, StringFormat='{0:hh\\:ss}'}"/>
+                                    <Label Text="{Binding Note}"/>
+                                </StackLayout>
+
+                                <Button Clicked="btnDelete_Clicked" Text="Delete" Margin="5" TextColor="Red" Grid.Column="1" VerticalOptions="Center" WidthRequest="80"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label x:Name="lblNotification"/>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
